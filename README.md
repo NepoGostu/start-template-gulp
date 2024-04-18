@@ -2,5 +2,5 @@
 
 - ### Установить зависимости npm i
 - ### Режим разработки - npm run dev
-
-#### src/scss/options/_variables.scss - @mixins
+- ### Описание:
+  - ### src/scss/options/_variables.scss - @mixins
