@@ -1,0 +1,200 @@
+@import "variables";
+
+html {
+	scroll-behavior: smooth;
+}
+
+video {
+	object-fit: cover;
+	aspect-ratio: 16 / 9;
+}
+
+.container {
+	@include responsive_container(100, (80, 60, 40), (1248, 1024, 768));
+	margin: 0 auto;
+}
+
+.absolutX-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.abolusteY-center {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 1;
+}
+
+.for-desc-block {
+	display: block;
+
+	@media (max-width: 1000px) {
+		display: none !important;
+	}
+}
+
+.for-mob-block {
+	display: block;
+
+	@media (min-width: 1001px) {
+		display: none !important;
+	}
+}
+
+.for-desc-flex {
+	display: flex;
+
+	@media (max-width: 1000px) {
+		display: none !important;
+	}
+}
+
+.for-mob-flex {
+	display: flex;
+	@media (min-width: 1001px) {
+		display: none !important;
+	}
+}
+
+.for-650-block {
+	display: none;
+
+	@media (max-width: 651px) {
+		display: block !important;
+	}
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+	overflow-y: hidden;
+}
+
+.m {
+	&t {
+		&-10 {
+			margin-top: 10px;
+		}
+		&-50 {
+			margin-top: 50px;
+		}
+		&-1000 {
+			margin-top: 1000px;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col {
+	flex: 1;
+	padding: 0 10px;
+}
+
+.gap {
+	&-05 {
+		gap: 0.5rem;
+	}
+ }
+
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.sticky {
+	position: sticky;
+	top: 0; // Закрепляется к верху экрана при прокрутке
+}
+
+// Классы для выравнивания
+.align-start {
+	align-items: flex-start;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.align-end {
+	align-items: flex-end;
+}
+
+// Классы для выравнивания текста
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+@media (max-width: 650px) {
+	.for-650-block {
+		display: block;
+	}
+}
+
+.img-fluid {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+
+
+//привер для адаптации блока
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.card {
+	width: calc(25% - 10px);
+	height: fit-content;
+
+	@include media_response('tablet-wide') {
+		width: calc(33.33% - 10px);
+	}
+
+	@include media_response('tablet') {
+		width: calc(50% - 10px);
+	}
+
+	@include media_response('tablet-small') {
+		width: 100%;
+	}
+}
+
+
+
+

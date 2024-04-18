@@ -1,0 +1,20 @@
+.button {
+    max-width: 370px;
+    width: 100%;
+    padding: 20px 60px;
+    border-radius: 33px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    &_red {
+        background-color: $red1;
+        color: white;
+    }
+    &_wht {
+        background-color: white;
+        color: black;
+    }
+}

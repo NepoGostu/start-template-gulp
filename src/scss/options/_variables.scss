@@ -1,0 +1,94 @@
+$index: calc(1vw + 1vh);
+
+$red1: #A02F2F;
+$red2: #731010;
+
+$white: #fff;
+$grey: rgba(255, 255, 255, 0.12);
+
+$max-container: 1920px;
+
+@mixin trns($param: all) {
+    transition: $param .3s ease;
+}
+
+@mixin fontSize($pcSize, $mobSize,$maxWidth) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+@mixin observeTextSize($pcSize, $mobSize,$maxWidth) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    transform: translateY(calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})));
+    
+}
+
+//адаптивный шрифт по брейкпоинтам
+@mixin responsive_font($pcSize,$sizes,$breakpoints) {
+    font-size:$pcSize + px;
+    @for $i from 1 through length($breakpoints) {
+        @media only screen and (max-width: nth($breakpoints,$i) + px) {
+            font-size: nth($sizes,$i) + px;
+        }
+    }
+}
+//пример
+//@include responsive_font(80, (60, 42, 40), (1439, 1279, 1023));
+
+//адаптивный контейрен по брейкпоинтам
+@mixin responsive_container($pcSize, $sizes, $breakpoints) {
+    max-width: $max-container;
+    width: calc(100% - #{$pcSize}px);
+    @for $i from 1 through length($breakpoints) {
+        @media only screen and (max-width: nth($breakpoints,$i) + px) {
+            width:calc(100% - #{nth($sizes,$i)}px);
+        }
+    }
+}
+
+//пример
+//@include responsive_container(80, (60, 42, 40), (1439, 1279, 1023));
+
+//псевдоэлемент
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+//пример
+//.class-name::after {
+//    @include pseudo;
+//}
+
+//медиа запросы
+$breakpoints: (
+        "phone": 320px,
+        "phone-wide": 480px,
+        "tablet-small": 640px,
+        "tablet": 768px,
+        "tablet-wide": 1024px,
+        "desktop": 1248px,
+        "desktop-wide": 1440px
+);
+@mixin media_response($width, $type: max) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type == max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+//пример
+//.class-name {
+//    @include mq('tablet-wide') {
+//        padding-top: 4rem;
+//    }
+//}
+

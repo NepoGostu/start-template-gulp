@@ -1,0 +1,59 @@
+.txt {
+    font-style: normal;
+
+    &_title {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 36px;
+        letter-spacing: 1.3px;
+    }
+
+    &_big-title {
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 46px;
+        letter-spacing: 2.16px;
+    }
+
+    &_fz-12 {
+        font-size: 12px;
+    }
+
+    &_fz-13 {
+        font-size: 13px;
+    }
+
+    &_fz-14 {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    &_fz-16 {
+        font-size: 16px;
+    }
+
+    &_fz-38 {
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    &_fz-43 {
+        font-size: 43px;
+        font-style: normal;
+        font-weight: 600;
+    }
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.upper {
+    text-transform: uppercase;
+}
